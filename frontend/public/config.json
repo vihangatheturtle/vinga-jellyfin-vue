@@ -1,4 +1,6 @@
 {
-  "defaultServerURLs": [],
+  "defaultServerURLs": [
+    "https://jellyfin.filmclick.eu.org"
+  ],
   "routerMode": "hash"
 }

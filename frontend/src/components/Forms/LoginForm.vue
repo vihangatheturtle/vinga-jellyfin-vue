@@ -30,17 +30,8 @@
       <VRow
         align="center"
         no-gutters>
-        <VCol class="mr-2">
+        <VCol class="mr-2" v-if="!isEmpty(user)">
           <VBtn
-            v-if="isEmpty(user)"
-            to="/server/select"
-            block
-            size="large"
-            variant="elevated">
-            {{ $t('changeServer') }}
-          </VBtn>
-          <VBtn
-            v-else
             block
             size="large"
             variant="elevated"

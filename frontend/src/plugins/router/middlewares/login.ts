@@ -14,13 +14,19 @@ const routes = new Set([serverAddUrl, serverSelectUrl, serverLoginUrl]);
 /**
  * Redirects to login page if there's no user logged in.
  */
-export function loginGuard(
+export async function loginGuard(
   to: RouteLocationNormalized
-): boolean | RouteLocationRaw {
+): Promise<boolean | RouteLocationRaw> {
   let destinationRoute: RouteLocationPathRaw | undefined;
 
   if (remote.auth.servers.length <= 0) {
-    destinationRoute = { path: serverAddUrl, replace: true };
+    await remote.auth.connectServer("https://jellyfin.filmclick.eu.org");
+
+    // await (emote.auth.servers.length === 0
+    //   ? destinationRoute = { path: serverLoginUrl, replace: true }
+    //   : destinationRoute = { path: serverLoginUrl, replace: true };);
+    
+    destinationRoute = { path: serverLoginUrl, replace: true };
   } else if (!routes.has(to.path)) {
     if (isNil(remote.auth.currentServer)) {
       destinationRoute = { path: serverSelectUrl, replace: true };

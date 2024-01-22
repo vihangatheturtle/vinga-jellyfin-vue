@@ -40,18 +40,6 @@
               {{ $t('manualLogin') }}
             </VBtn>
           </VCol>
-          <VCol
-            cols="11"
-            sm="6"
-            class="d-flex justify-center">
-            <VBtn
-              block
-              to="/server/select"
-              size="large"
-              variant="elevated">
-              {{ $t('changeServer') }}
-            </VBtn>
-          </VCol>
         </VRow>
       </VCol>
       <VCol
